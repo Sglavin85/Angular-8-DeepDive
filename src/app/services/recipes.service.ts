@@ -5,8 +5,6 @@ import { Ingredient } from 'src/models/ingredient/ingredient.model';
 
 export class RecipesService {
 
-  recipeSelected = new EventEmitter<Recipe>();
-
   private recipes: Recipe[] = [
     new Recipe(
       'Dry Rub Ribs',
@@ -32,6 +30,10 @@ export class RecipesService {
   //returns a copy of the array of recipes so that it cannot be changed from outside the service as opposed to returning the reference to the array.
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  getRecipe(id: number) {
+    return this.recipes[id]
   }
 
 
